@@ -1,23 +1,17 @@
 /**
  *
  */
-public final class DocenteTCO extends Docente{
-    public double sueldoMensual;
-    public int canTrabGrado;
-    public double valorHoraAsesor;
-    public double sueldoBasico;
+public final class DocenteTCO extends Docente {
+    private double sueldoMensual;
+    private int canTrabGrado;
+    private double valorHoraAsesor;
+    private double sueldoBasico;
 
-    public DocenteTCO(String nombreDoc,
-                      String facultadDoc,
-                      String cadiDoc,
-                      int canTrabGrado,
-                      double valorHoraAsesor,
-                      double sueldoBasico
-                      ) {
+    public DocenteTCO(String nombreDoc, String facultadDoc, String cadiDoc, int canTrabGrado, double valorHoraAsesor, double sueldoBasico) {
         super(nombreDoc, facultadDoc, cadiDoc);
-        this.sueldoMensual = sueldoMensual;
         this.canTrabGrado = canTrabGrado;
         this.valorHoraAsesor = valorHoraAsesor;
+        this.sueldoBasico = sueldoBasico;
     }
 
     public void establecerSueldoBasico(double sueldo) {
@@ -32,13 +26,27 @@ public final class DocenteTCO extends Docente{
         this.valorHoraAsesor = valorHora;
     }
 
-    public void calcularSueldoMensual(double sueldo) {
-        double sueldo_extra = (this.canTrabGrado * this.valorHoraAsesor) * 2;
-        this.sueldoMensual = this.sueldoBasico + sueldo_extra;
+    public void calcularSueldoMensual() {
+        double sueldoExtra = (this.canTrabGrado * this.valorHoraAsesor) * 2;
+        this.sueldoMensual = this.sueldoBasico + sueldoExtra;
     }
 
     public double obtenerSueldoMensual() {
         return this.sueldoMensual;
+    }
+
+    @Override
+    public void calcular_salario() {
+        calcularSueldoMensual();
+    }
+
+    @Override
+    public void mostrarInformacion() {
+        super.mostrarInformacion();
+        System.out.println("Sueldo Mensual: " + obtenerSueldoMensual());
+        System.out.println("Cantidad de Trabajos de Grado: " + canTrabGrado);
+        System.out.println("Valor por Hora de Asesoría: " + valorHoraAsesor);
+        System.out.println("Sueldo Básico: " + sueldoBasico);
     }
 }
 

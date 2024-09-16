@@ -6,14 +6,13 @@ public abstract sealed class Docente permits DocenteHC, DocenteTCO {
     protected String facultadDoc;
     protected String cadiDoc;
 
-    public abstract void calcular_salario();
-
     public Docente(String nombreDoc, String facultadDoc, String cadiDoc) {
         this.nombreDoc = nombreDoc;
         this.facultadDoc = facultadDoc;
         this.cadiDoc = cadiDoc;
     }
 
+    public abstract void calcular_salario();
 
     public void establecerNombreDoc(String nombre) {
         this.nombreDoc = nombre;
@@ -38,6 +37,11 @@ public abstract sealed class Docente permits DocenteHC, DocenteTCO {
     public String obtenerCadiDoc() {
         return this.cadiDoc;
     }
-}
 
+    public void mostrarInformacion() {
+        System.out.println("Nombre: " + nombreDoc);
+        System.out.println("Facultad: " + facultadDoc);
+        System.out.println("CADI: " + cadiDoc);
+    }
+}
 
