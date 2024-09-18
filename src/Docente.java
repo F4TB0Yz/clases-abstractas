@@ -38,10 +38,9 @@ public abstract sealed class Docente permits DocenteHC, DocenteTCO {
         return this.cadiDoc;
     }
 
-    public void mostrarInformacion() {
-        System.out.println("Nombre: " + nombreDoc);
-        System.out.println("Facultad: " + facultadDoc);
-        System.out.println("CADI: " + cadiDoc);
+    @Override
+    public String toString() {
+        return "Nombre: " + nombreDoc + "\nFacultad: " + facultadDoc + "\nCADI: " + cadiDoc;
     }
 }
 

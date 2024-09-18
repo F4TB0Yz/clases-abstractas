@@ -5,43 +5,51 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // Ingresar datos para DocenteTCO
-        System.out.println("Ingrese los datos para DocenteTCO:");
+        System.out.println("Ingrese los datos para el Docente:");
         System.out.print("Nombre: ");
-        String nombreTCO = scanner.nextLine();
+        String nombre = scanner.nextLine();
         System.out.print("Facultad: ");
-        String facultadTCO = scanner.nextLine();
+        String facultad = scanner.nextLine();
         System.out.print("CADI: ");
-        String cadiTCO = scanner.nextLine();
-        System.out.print("Cantidad de Trabajos de Grado: ");
-        int canTrabGrado = scanner.nextInt();
-        System.out.print("Valor por Hora de Asesoría: ");
-        double valorHoraAsesor = scanner.nextDouble();
-        System.out.print("Sueldo Básico: ");
-        double sueldoBasico = scanner.nextDouble();
+        String cadi = scanner.nextLine();
 
-        DocenteTCO docenteTCO = new DocenteTCO(nombreTCO, facultadTCO, cadiTCO, canTrabGrado, valorHoraAsesor, sueldoBasico);
-        docenteTCO.calcular_salario();
-        docenteTCO.mostrarInformacion();
+        // Seleccionar tipo de docente
+        System.out.println("Seleccione el tipo de docente:");
+        System.out.println("1. DocenteHC");
+        System.out.println("2. DocenteTCO");
+        int tipoDocente = scanner.nextInt();
 
-        System.out.println();
+        switch (tipoDocente) {
+            case 1:
+                // Ingresar datos específicos para DocenteHC
+                System.out.print("Horas Trabajadas: ");
+                int horasTrab = scanner.nextInt();
+                System.out.print("Valor por Hora: ");
+                double valorHora = scanner.nextDouble();
 
-        // Ingresar datos para DocenteHC
-        System.out.println("Ingrese los datos para DocenteHC:");
-        scanner.nextLine(); // Consumir el salto de línea pendiente
-        System.out.print("Nombre: ");
-        String nombreHC = scanner.nextLine();
-        System.out.print("Facultad: ");
-        String facultadHC = scanner.nextLine();
-        System.out.print("CADI: ");
-        String cadiHC = scanner.nextLine();
-        System.out.print("Horas Trabajadas: ");
-        int horasTrab = scanner.nextInt();
-        System.out.print("Valor por Hora: ");
-        double valorHora = scanner.nextDouble();
+                DocenteHC docenteHC = new DocenteHC(nombre, facultad, cadi, horasTrab, valorHora);
+                docenteHC.calcular_salario();
+                docenteHC.mostrarInformacion();
+                break;
 
-        DocenteHC docenteHC = new DocenteHC(nombreHC, facultadHC, cadiHC, horasTrab, valorHora);
-        docenteHC.calcular_salario();
-        docenteHC.mostrarInformacion();
+            case 2:
+                // Ingresar datos específicos para DocenteTCO
+                System.out.print("Cantidad de Trabajos de Grado: ");
+                int canTrabGrado = scanner.nextInt();
+                System.out.print("Valor por Hora de Asesoría: ");
+                double valorHoraAsesor = scanner.nextDouble();
+                System.out.print("Sueldo Básico: ");
+                double sueldoBasico = scanner.nextDouble();
+
+                DocenteTCO docenteTCO = new DocenteTCO(nombre, facultad, cadi, canTrabGrado, valorHoraAsesor, sueldoBasico);
+                docenteTCO.calcular_salario();
+                docenteTCO.mostrarInformacion();
+                break;
+
+            default:
+                System.out.println("Opción no válida.");
+                break;
+        }
 
         scanner.close();
     }
