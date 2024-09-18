@@ -20,6 +20,7 @@ public final class DocenteHC extends Docente {
 
     public void calcularSueldoMesHoras() {
         this.sueldoMesHoras = this.horasTrab * this.valorHora;
+        this.salarioTotal = sueldoMesHoras;
     }
 
     public double obtenerSueldoMesHoras() {

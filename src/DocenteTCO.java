@@ -29,6 +29,7 @@ public final class DocenteTCO extends Docente {
     public void calcularSueldoMensual() {
         double sueldoExtra = (this.canTrabGrado * this.valorHoraAsesor) * 2;
         this.sueldoMensual = this.sueldoBasico + sueldoExtra;
+        this.salarioTotal = this.sueldoMensual;
     }
 
     public double obtenerSueldoMensual() {
