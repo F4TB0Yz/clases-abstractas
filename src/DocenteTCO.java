@@ -41,12 +41,8 @@ public final class DocenteTCO extends Docente {
     }
 
     @Override
-    public void mostrarInformacion() {
-        super.mostrarInformacion();
-        System.out.println("Sueldo Mensual: " + obtenerSueldoMensual());
-        System.out.println("Cantidad de Trabajos de Grado: " + canTrabGrado);
-        System.out.println("Valor por Hora de Asesoría: " + valorHoraAsesor);
-        System.out.println("Sueldo Básico: " + sueldoBasico);
+    public String toString() {
+        return super.toString() + "\nSueldo Mensual: " + obtenerSueldoMensual() + "\nCantidad de Trabajos de Grado: " + canTrabGrado + "\nValor por Hora de Asesoría: " + valorHoraAsesor + "\nSueldo Básico: " + sueldoBasico;
     }
 }
 

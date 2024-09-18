@@ -32,10 +32,7 @@ public final class DocenteHC extends Docente {
     }
 
     @Override
-    public void mostrarInformacion() {
-        super.mostrarInformacion();
-        System.out.println("Horas Trabajadas: " + horasTrab);
-        System.out.println("Valor por Hora: " + valorHora);
-        System.out.println("Sueldo Mensual por Horas: " + obtenerSueldoMesHoras());
+    public String toString() {
+        return super.toString() + "\nHoras Trabajadas: " + horasTrab + "\nValor por Hora: " + valorHora + "\nSueldo Mensual por Horas: " + obtenerSueldoMesHoras();
     }
 }

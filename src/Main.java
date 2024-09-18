@@ -29,7 +29,7 @@ public class Main {
 
                 DocenteHC docenteHC = new DocenteHC(nombre, facultad, cadi, horasTrab, valorHora);
                 docenteHC.calcular_salario();
-                docenteHC.mostrarInformacion();
+                System.out.println(docenteHC);
                 break;
 
             case 2:
@@ -43,7 +43,7 @@ public class Main {
 
                 DocenteTCO docenteTCO = new DocenteTCO(nombre, facultad, cadi, canTrabGrado, valorHoraAsesor, sueldoBasico);
                 docenteTCO.calcular_salario();
-                docenteTCO.mostrarInformacion();
+                System.out.println(docenteTCO);
                 break;
 
             default:
